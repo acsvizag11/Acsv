@@ -1,0 +1,46 @@
+{% extends 'indexpage.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">User Registrations Forms</h4>
+        {{form.as_p}}
+        <input type="Submit" value="Submit">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">User information</h4>
+        {% if stu %}
+            <h2>Tables</h2>
+               <table class="table">
+                 <thead>
+                    <tr>
+                      <th scope="col">S_no</th>
+                      <th scope="col">First_Name</th>
+                      <th scope="col">Last_Name</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                   {% for st in stu%}
+                    <tr>
+                      <th scope="row">{{st.S_no}}</th>
+                      <td>{{st.First_Name}}</td>
+                      <td>{{st.Last_Name}}</td>
+                      <td>{{st.Email}}</td>
+                    </tr>
+                   {% endfor %}
+
+                 </tbody>
+               </table>
+       
+        {% else %}
+           <h4 class="text-center alert alert-danger">No data available</h4>
+           <input type="Edit" value="Edit">
+        {% endif %}
+    </div>
+  </div>
+
+    
+{% endblock content %}
